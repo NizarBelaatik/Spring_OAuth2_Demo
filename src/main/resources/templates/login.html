@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-google {
+            display: inline-flex;
+            align-items: center;
+            background: #4285F4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-google img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        * {box-sizing: border-box}
+
+        /* style the container */
+        .container {
+          position: relative;
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px 0 30px 0;
+        }
+
+        /* style inputs and link buttons */
+        input,
+        .btn {
+          width: 100%;
+          padding: 12px;
+          border: none;
+          border-radius: 4px;
+          margin: 5px 0;
+          opacity: 0.85;
+          display: inline-block;
+          font-size: 17px;
+          line-height: 20px;
+          text-decoration: none; /* remove underline from anchors */
+        }
+
+        input:hover,
+        .btn:hover {
+          opacity: 1;
+        }
+
+        /* add appropriate colors to fb, twitter and google buttons */
+        .fb {
+          background-color: #3B5998;
+          color: white;
+        }
+
+        .twitter {
+          background-color: #55ACEE;
+          color: white;
+        }
+
+        .google {
+          background-color: #dd4b39;
+          color: white;
+        }
+
+        /* style the submit button */
+        input[type=submit] {
+          background-color: #04AA6D;
+          color: white;
+          cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+
+        /* Two-column layout */
+        .col {
+          float: left;
+          width: 50%;
+          margin: auto;
+          padding: 0 50px;
+          margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        /* vertical line */
+        .vl {
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          border: 2px solid #ddd;
+          height: 175px;
+        }
+
+        /* text inside the vertical line */
+        .inner {
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #f1f1f1;
+          border: 1px solid #ccc;
+          border-radius: 50%;
+          padding: 8px 10px;
+        }
+
+        /* hide some text on medium and large screens */
+        .hide-md-lg {
+          display: none;
+        }
+
+        /* bottom container */
+        .bottom-container {
+          text-align: center;
+          background-color: #666;
+          border-radius: 0px 0px 4px 4px;
+        }
+
+        /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 650px) {
+          .col {
+            width: 100%;
+            margin-top: 0;
+          }
+          /* hide the vertical line */
+          .vl {
+            display: none;
+          }
+          /* show the hidden text on small screens */
+          .hide-md-lg {
+            display: block;
+            text-align: center;
+          }
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .login-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin: 10px 0 20px;
+        }
+
+        .btn-google {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #444;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-google:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-google img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .small-text {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+
+        .login-container {
+          background: white;
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+        .btn-google {
+          background: white;
+          border: 1px solid #ddd;
+          padding: 10px 20px;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          text-decoration: none;
+          color: #444;
+        }
+        .btn-google img {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+        .btn-google:hover {
+          background-color: #f7f7f7;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+
+    <form action="/login" method="POST">
+        <div class="textbox">
+            <input type="email" placeholder="Email" name="username" required>
+        </div>
+        <div class="textbox">
+            <input type="password" placeholder="Password" name="password" required>
+        </div>
+        <div class="form-actions">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+
+    <div class="separator">
+        <p>OR</p>
+    </div>
+
+    <a class="btn-google" th:href="@{/oauth2/authorization/google}" role="button" aria-label="Sign in with Google">
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+        Sign in with Google
+    </a>
+</div>
+
+</body>
+</html>

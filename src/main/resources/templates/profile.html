@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-box">
+        <h1>Welcome, <span th:text="${name}"></span>!</h1>
+
+        <!-- Display the Avatar Image -->
+        <div class="avatar">
+            <img th:src="${avatarUrl != null ? avatarUrl : '/images/default-avatar.png'}" alt="User Avatar" class="avatar-img" width="100" height="100"/>
+        </div>
+
+        <p><strong>Email:</strong> <span th:text="${email != null ? email : 'Not available'}"></span></p>
+        <p><strong>First Name:</strong> <span th:text="${givenName != null ? givenName : 'Not available'}"></span></p>
+        <p><strong>Last Name:</strong> <span th:text="${familyName != null ? familyName : 'Not available'}"></span></p>
+        <p><strong>Locale:</strong> <span th:text="${locale != null ? locale : 'Not available'}"></span></p>
+        <p><strong>Gender:</strong> <span th:text="${gender != null ? gender : 'Not available'}"></span></p>
+        <p><strong>Birthdate:</strong> <span th:text="${birthdate != null ? birthdate : 'Not available'}"></span></p>
+
+        <div class="profile-actions">
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
