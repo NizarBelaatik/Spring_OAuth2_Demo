@@ -28,9 +28,9 @@ public class HomeController {
     @GetMapping("/profile")
     public String profile(@AuthenticationPrincipal OAuth2User user, Model model) {
         if (user != null) {
-            // Add user details to the model
             model.addAttribute("name", user.getAttribute("name"));
             model.addAttribute("email", user.getAttribute("email"));
+            model.addAttribute("email_verified", user.getAttribute("email_verified"));
             model.addAttribute("avatarUrl", user.getAttribute("picture"));  // Add avatar URL
             model.addAttribute("givenName", user.getAttribute("given_name"));
             model.addAttribute("familyName", user.getAttribute("family_name"));

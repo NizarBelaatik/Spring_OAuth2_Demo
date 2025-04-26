@@ -19,9 +19,11 @@
         <p><strong>Email:</strong> <span th:text="${email != null ? email : 'Not available'}"></span></p>
         <p><strong>First Name:</strong> <span th:text="${givenName != null ? givenName : 'Not available'}"></span></p>
         <p><strong>Last Name:</strong> <span th:text="${familyName != null ? familyName : 'Not available'}"></span></p>
-        <p><strong>Locale:</strong> <span th:text="${locale != null ? locale : 'Not available'}"></span></p>
-        <p><strong>Gender:</strong> <span th:text="${gender != null ? gender : 'Not available'}"></span></p>
-        <p><strong>Birthdate:</strong> <span th:text="${birthdate != null ? birthdate : 'Not available'}"></span></p>
+        <p><strong>Email Verified:</strong> <span th:text="${email_verified  ? 'True' : 'False'}"></span></p>
+
+
+
+
 
         <div class="profile-actions">
             <a href="/logout" class="logout-btn">Logout</a>

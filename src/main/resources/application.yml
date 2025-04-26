@@ -9,8 +9,16 @@ spring:
             client-id: ${google.client-id}
             client-secret: ${google.client-secret}
             # les scopes d'autorisation (email et profil)
-            scope: openid, profile, email, https://www.googleapis.com/auth/userinfo.profile
+            scope:
+              - openid
+              - profile
+              - email
+              - https://www.googleapis.com/auth/user.birthday.read  # for birthdate
+              - https://www.googleapis.com/auth/userinfo.profile
+              - https://www.googleapis.com/auth/user.gender.read
             redirect-uri: http://localhost:8080/login/oauth2/code/google
+            authorization-grant-type: authorization_code
+            client-name: Google
         provider:
           google:
             authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
